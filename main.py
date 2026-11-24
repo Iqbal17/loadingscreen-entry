@@ -34,21 +34,34 @@ PASS 2 — revision of C for laugh + fit + brevity:
 "has never once needed" -> "has never needed" (one filler word cut).
 Final line is 109 characters, verified by hand-count below.
 
-CHOSEN LINE (109 chars):
+PASS 3 — fix-agent revision (kit check failed only thinking_turns /
+thinking_revised, so one genuine revision pass):
+The opening ("Tip: Stretch. Blink.") and the image of the agent typing
+through your break are the strongest parts, so both stay. The tail was the
+soft spot: "it has never needed a break, and it resents yours" ends on
+passive jealousy, and "needed" is abstract. Revised to "it has never taken
+a break, and it is keeping score": "taken" is concrete (the agent has
+literally never stopped), and "keeping score" turns the punchline from envy
+into quiet surveillance — the agent is tallying your breaks, which is
+funnier, more agent-like, and lands harder on both audiences at once
+(criterion 4: the dev takes the break, the agent logs it). One word longer
+in the tail, same shape, sharper landing.
+
+CHOSEN LINE (111 chars):
 "Tip: Stretch. Blink. The agent keeps typing while you do — it has never
-needed a break, and it resents yours."
+taken a break, and it is keeping score."
 """
 
 import os
 
-LINE = "Tip: Stretch. Blink. The agent keeps typing while you do \u2014 it has never needed a break, and it resents yours."
+LINE = "Tip: Stretch. Blink. The agent keeps typing while you do \u2014 it has never taken a break, and it is keeping score."
 
 
 def main():
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     # Write the line exactly, no trailing newline, so the file holds exactly
-    # the 109 characters the gate counts.
+    # the 111 characters the gate counts.
     with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
         f.write(LINE)
 
